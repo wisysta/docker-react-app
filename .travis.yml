@@ -11,16 +11,15 @@ before_install:
 
 script:
     - docker run -e CI=true wisysta/docker-react-app npm run test -- --coverage
+# deploy:
+#     - provider: elasticbeanstalk
+#     - region: 'ap-northeast-2'
+#     - app: 'docker-react-app'
+#     - env: 'Dockerreactapp-env'
+#     - bucket_name: 'elasticbeanstalk-ap-northeast-2-219833474047'
+#     - bucket_path: 'docker-react-app'
+#     on:
+#         branch: main
 
-deploy:
-    - provider: elasticbeanstalk
-    - region: 'ap-northeast-2'
-    - app: 'docker-react-app'
-    - env: 'Dockerreactapp-env'
-    - bucket_name: 'elasticbeanstalk-ap-northeast-2-219833474047'
-    - bucket_path: 'docker-react-app'
-    on:
-        branch: main
-
-    access_key_id: $AWS_ACCESS_KEY
-    secret_access_key: $AWS_SECRET_ACCESS_KEY
+#     access_key_id: $AWS_ACCESS_KEY
+#     secret_access_key: $AWS_SECRET_ACCESS_KEY
